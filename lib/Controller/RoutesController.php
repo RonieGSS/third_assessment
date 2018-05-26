@@ -14,7 +14,9 @@ class RoutesController
 	public function requireRoute($url)
 	{
 		if (isset($this->route[$url])) {
+			require_once('app/View/Common/header.php');
 			require_once('app/View' . $this->route[$url] . '.php');
+			require_once('app/View/Common/footer.php');
 		}
 	}
 }

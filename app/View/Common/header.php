@@ -4,4 +4,3 @@
 	<title>Third Assessment</title>
 </head>
 <body>
-	<h2>Hello</h2>
