@@ -8,7 +8,8 @@ class RoutesController
 
 	public function addRoute($url, $view = '')
 	{
-		$this->route[$url] = $url.$view;
+		$this->route[$url] = (preg_match('/\/$/', $url)) ? 
+							 $url.$view : $url;
 	}
 
 	public function requireRoute($url)
