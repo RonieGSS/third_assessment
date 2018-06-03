@@ -14,7 +14,9 @@ $router = new RoutesController();
  * and assigned if routeUrl is different form view page name
  */
 // $url is different different from $view so second parameter is needed
+// points to app/View/home.php
 $router->addRoute('/', 'home');
 
 // $url is the same as $view so second parameter is unnecessary
+// points to app/View/about.php
 $router->addRoute('/about');

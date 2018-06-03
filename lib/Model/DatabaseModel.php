@@ -2,15 +2,57 @@
 
 namespace Lib\Model;
 
+/**
+ * DatabaseModel Class
+ *
+ * Manages database connection
+ *
+ */
 class DatabaseModel
 {
+	/**
+	 *
+	 * @var string $servername
+	 *
+	 */
 	private $servername;
+
+	/**
+	 *
+	 * @var string $driver
+	 *
+	 */
 	private $driver;
+
+	/**
+	 *
+	 * @var string $username
+	 *
+	 */
 	private $username;
+
+	/**
+	 *
+	 * @var string $password
+	 *
+	 */
 	private $password;
+
+	/**
+	 *
+	 * @var string $database
+	 *
+	 */
 	private $database;
 
-	public function connect($config)
+	/**
+	 * connect method
+	 * connects the database
+	 * 
+	 * @param array $config holds database configuration
+	 * @return PDO Class return PDO instance
+	 */
+	public function connect(array $config)
 	{
 		$this->setServerName($config['host']);
 		$this->setDriver($config['driver']);
@@ -21,31 +63,67 @@ class DatabaseModel
 		return $this->getPDO();
 	}
 
-	private function setServerName($servername)
+	/**
+	 * setServerName method
+	 * sets the database servername
+	 *
+	 * @param string $servername
+	 */
+	private function setServerName(string $servername)
 	{
 		$this->servername = htmlentities(trim($servername));
 	}
 
-	private function setDriver($driver)
+	/**
+	 * setDriver method
+	 * sets the database driver
+	 *
+	 * @param string $driver
+	 */
+	private function setDriver(string $driver)
 	{
 		$this->driver = htmlentities(lcfirst(trim($driver)));
 	}
 
-	private function setUsername($username)
+	/**
+	 * setUsername method
+	 * sets the database username
+	 *
+	 * @param string $username
+	 */
+	private function setUsername(string $username)
 	{
 		$this->username = htmlentities(trim($username));
 	}
 
-	private function setPassword($password)
+	/**
+	 * setPassword method
+	 * sets the database password
+	 *
+	 * @param string $password
+	 */
+	private function setPassword(string $password)
 	{
 		$this->password = htmlentities(trim($password));
 	}
 
-	private function setDatabase($database)
+	/**
+	 * setDatabase method
+	 * sets the database name
+	 *
+	 * @param string $database
+	 */
+	private function setDatabase(string $database)
 	{
 		$this->database = htmlentities(trim($database));
 	}
 
+	/**
+	 * getPDO method
+	 * gets PDO instance
+	 *
+	 * @return PDO class - returns the PDO instance
+	 */
 	private function getPDO()
 	{
 		try {

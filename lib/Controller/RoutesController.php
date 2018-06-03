@@ -19,7 +19,7 @@ class RoutesController
 	 * @param $url string the route url to add
 	 * @param $view string the view page to request for a given route
 	 */
-	public function addRoute($url, $view = 'index')
+	public function addRoute(string $url, string $view = 'index')
 	{
 		$this->route[$url] = (preg_match('/\/$/', $url)) ? 
 							 $url.$view : ($view != 'index') ? 
@@ -31,7 +31,7 @@ class RoutesController
 	 *
 	 * @param $url string the requested route url
 	 */
-	public function requireRoute($url)
+	public function requireRoute(string $url)
 	{
 		if (isset($this->route[$url])) {
 			require_once('app/View/Common/header.php');
