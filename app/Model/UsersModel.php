@@ -2,7 +2,7 @@
 
 namespace App\Model;
 
-class UsersModel
+class UsersModel extends TableModel
 {
-	
+
 }

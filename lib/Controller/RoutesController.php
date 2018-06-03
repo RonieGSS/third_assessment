@@ -2,10 +2,23 @@
 
 namespace Lib\Controller;
 
+/**
+ * Responsible for routing
+ *
+ */
 class RoutesController
 {
+	/**
+	 * @var route array, list of added routes
+	 */
 	private $route = [];
 
+	/**
+	 * Add routes
+	 *
+	 * @param $url string the route url to add
+	 * @param $view string the view page to request for a given route
+	 */
 	public function addRoute($url, $view = 'index')
 	{
 		$this->route[$url] = (preg_match('/\/$/', $url)) ? 
@@ -13,6 +26,11 @@ class RoutesController
 							 			  "/{$view}" : $url;
 	}
 
+	/**
+	 * Gets the view page requested by the route url
+	 *
+	 * @param $url string the requested route url
+	 */
 	public function requireRoute($url)
 	{
 		if (isset($this->route[$url])) {
