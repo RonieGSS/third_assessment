@@ -38,8 +38,8 @@ class RoutesController
 			require_once('app/View' . $this->route[$url] . '.php');
 			require_once('app/View/Common/footer.php');
 		} else {
-			$redirectUrl = str_replace('index.php','', $_SERVER['PHP_SELF']);
-			header("Location: {$redirectUrl}");
+			echo '<h2>404 PAGE NOT FOUND :)</h2>'.
+				 '<h4>Check app/Config/routes.php file</h4>';
 			die();
 		}
 	}
