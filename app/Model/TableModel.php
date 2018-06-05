@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace App\Model;
 
@@ -13,12 +13,13 @@ class TableModel
 	/**
 	 * Connects to the database
 	 *
-	 * @return PDO Class $conn returns the PDO Instance
+	 * @return PDO Class returns the PDO Instance
 	 */
 	protected function conn()
 	{
-		require_once('app/Config/database.php');
+		$database = new \Lib\Model\DatabaseModel();
+		$database_config = require_once('app/Config/database.php');
 		
-		return $conn;
+		return $database->connect($database_config['database_config']);
 	}
 }
